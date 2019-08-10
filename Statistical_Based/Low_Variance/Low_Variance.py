@@ -1,5 +1,5 @@
 import scipy.io
-from skfeature.function.statistical_based import low_variance
+#from skfeature.function.statistical_based import low_variance
 from skfeature.utility import unsupervised_evaluation
 
 mat = scipy.io.loadmat('../Datasets/BASEHOCK.mat')
@@ -12,7 +12,8 @@ p = 0.1  # specify the threshold p to be 0.1
 num_cluster = 2  # specify the number of clusters to be 2
 
 # perform feature selection and obtain the dataset on the selected features
-selected_features = low_variance.low_variance_feature_selection(X, p*(1-p))
+from Statistical_Based.Low_Variance.LowVarianceZeal import Low_Variance_FS
+selected_features = Low_Variance_FS(X, p*(1-p))
 
 # perform kmeans clustering based on the selected features and repeats 20 times
 nmi_total = 0

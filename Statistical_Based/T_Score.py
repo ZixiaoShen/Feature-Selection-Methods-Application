@@ -11,7 +11,6 @@ y = mat['Y']
 y = y[:, 0]
 n_samples, n_features = X.shape  # number of samples and number of features
 
-
 score = t_score.t_score(X, y)
 idx = t_score.feature_ranking(score)
 print(idx)
