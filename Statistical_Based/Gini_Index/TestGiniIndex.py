@@ -19,3 +19,4 @@ score = GiniIndexZeal.gini_index(X, y)
 idx = GiniIndexZeal.feature_ranking(score)
 print(score)
 print(idx)
+
