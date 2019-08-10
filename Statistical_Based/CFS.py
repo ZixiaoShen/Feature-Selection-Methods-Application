@@ -23,7 +23,11 @@ for train_Id, test_Id in kf.split(X):
 
     # obtain the index of selected features on training set
     idx = CFS.cfs(X_train, y_train)
+
+    # train a classification model with the selected features on the training dataset
     selected_features = X[:, idx]
+
+    # predict the class labels of test data
     clf.fit(selected_features[train_Id], y[train_Id])
     y_predict = clf.predict(selected_features[test_Id])
 
