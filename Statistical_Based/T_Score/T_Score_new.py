@@ -2,19 +2,20 @@ import scipy.io
 from sklearn.model_selection import KFold
 from sklearn.metrics import accuracy_score
 from sklearn import svm
-from skfeature.function.statistical_based import chi_square
+#from skfeature.function.statistical_based import t_score
 
-mat = scipy.io.loadmat('../Datasets/BASEHOCK.mat')
-
-X = mat['X']
-X = X.astype(float)
+mat = scipy.io.loadmat('/home/zealshen/DATA/DATAfromASU/BiologicalData/colon.mat')
+X = mat['X']  # data
+x = X.astype(float)
 y = mat['Y']
 y = y[:, 0]
-n_samples, n_features = X.shape
+n_samples, n_features = X.shape  # number of samples and number of features
 
-score = chi_square.chi_square(X, y)
-idx = chi_square.feature_ranking(score)
-print(idx)
+from Statistical_Based.T_Score import TscoreZeal
+score = TscoreZeal.T_Score_FS(X, y)
+idx = TscoreZeal.feature_ranking(score)
+print("Score:", score)
+print("idx:", idx)
 
 # perform evaluation on classification task
 num_fea = 100
@@ -29,10 +30,10 @@ for train_Id, test_Id in kf.split(X):
     y_train, y_test = y[train_Id], y[test_Id]
 
     # obtain the index of selected features on training set
-    score = chi_square.chi_square(X_train, y_train)
+    score = TscoreZeal.T_Score_FS(X_train, y_train)
 
     # rank feature in descending order according to score
-    idx = chi_square.feature_ranking(score)
+    idx = TscoreZeal.feature_ranking(score)
 
     # obtain the dataset on the selected features
     selected_features = X[:, idx[0:num_fea]]
