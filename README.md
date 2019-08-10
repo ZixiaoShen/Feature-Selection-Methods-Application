@@ -7,3 +7,7 @@ following categories:
 1. Statistical Based:
 
     1.1 CFS (Correlation Based Feature Selection Method)
+
+    1.2 Chi Square Score
+
+    1.3 Low Variance
