@@ -1,5 +1,4 @@
 import scipy.io
-from sklearn import svm
 
 mat = scipy.io.loadmat('/home/zealshen/DATA/DATAfromASU/BiologicalData/colon.mat')
 X = mat['X']
