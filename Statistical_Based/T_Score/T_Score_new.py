@@ -2,9 +2,8 @@ import scipy.io
 from sklearn.model_selection import KFold
 from sklearn.metrics import accuracy_score
 from sklearn import svm
-#from skfeature.function.statistical_based import t_score
 
-mat = scipy.io.loadmat('/home/zealshen/DATA/DATAfromASU/BiologicalData/colon.mat')
+mat = scipy.io.loadmat('/Users/shenzixiao/Dropbox/DATA/ASU/BiologicalData/colon.mat')
 X = mat['X']  # data
 x = X.astype(float)
 y = mat['Y']

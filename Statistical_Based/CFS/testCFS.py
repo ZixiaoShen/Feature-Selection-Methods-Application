@@ -1,7 +1,7 @@
 import scipy.io
 import numpy as np
 
-mat = scipy.io.loadmat('/home/zealshen/DATA/DATAfromASU/BiologicalData/colon.mat')
+mat = scipy.io.loadmat('/Users/shenzixiao/Dropbox/DATA/ASU/BiologicalData/colon.mat')
 X = mat['X']
 X = X.astype(float)
 y = mat['Y']
